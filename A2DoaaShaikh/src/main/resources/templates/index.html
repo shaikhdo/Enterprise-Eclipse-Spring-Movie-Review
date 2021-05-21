@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Movie Review Database!</title>
+</head>
+<body
+	style="background-color: #eeffcc; color: #003380; font-family: Verdana">
+	<h1>Want to watch something fun?</h1>
+	<table th:if="${movieReviewList != null AND movieReviewList != ''}">
+		<tr th:each="s: ${movieReviewList}">
+			<td style="width: 200px; padding: 20px; font-weight: bold;"
+				th:text="${s.name}"></td>
+			<td style="width: 500px; padding: 20px;" th:text="${s.review}"></td>
+			<td style="width: 200px; padding: 20px; font-style: oblique -12deg;"
+				th:text="${s.sub_date}"></td>
+			<td style="width: 200px; font-style: oblique -12deg; padding: 20px;"
+				th:text="${s.sub_time}"></td>
+		</tr>
+	</table>
+	<br>
+	<form method="post" action="" th:action="@{/insertReview}"
+		th:object="${movrev}">
+		<input type="hidden" name="id" th:field="*{id}" /> Film Title: 
+		<input type="text" name="name" style="width: 200px;" th:field="*{name}" /><br>
+		<br> Review: <input type="text" name="review"
+			style="width: 450px; height: 200px;" th:field="*{review}" /><br>
+		<br> <input type="hidden" name="sub_date" th:field="*{sub_date}" />
+		<input type="hidden" name="sub_time" th:field="*{sub_time}" /> <input
+			type="submit" value="Go!" />
+	</form>
+
+</body>
+</html>
