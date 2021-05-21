@@ -1,6 +1,5 @@
 /*
- * Author: Doaa Shaikh, 991588387
- * Assignment 2
+ * Author: Doaa Shaikh
  */
 
 package ca.sheridancollege.shaikhdo.controllers;
